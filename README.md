@@ -1,12 +1,34 @@
-# React + Vite
+# PROG-III-CRUD-T
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Polirubro Nevada - Sistema de Gestión de Ventas para Sodería
 
-Currently, two official plugins are available:
+## 🧾 Objetivo del Proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Desarrollar una SPA (Single Page Application) que simule un sistema de gestión de ventas para una sodería, permitiendo a los usuarios:
 
-## Expanding the ESLint configuration
+- Visualizar y administrar productos, stock, clientes y ventas.
+- Acceder al sistema según el tipo de usuario (Cliente o Empleado/Admin).
+- Navegar fácilmente por la plataforma con una experiencia moderna, rápida y responsiva.
+- Simular un entorno real de ventas, con funcionalidades como carrito de compras, historial de pedidos y sistema de autenticación.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Frontend**: React + Vite
+- **Routing**: React Router DOM
+- **Gestión de estado global**: Zustand
+- **API fake**: JSON Server
+- **Estilos**: Bootstrap 5 + CSS custom
+- **Lógica reutilizable**: Hooks personalizados (Custom Hooks)
+- **Herramientas adicionales**: Icons (Bootstrap Icons / FontAwesome), responsive design
+
+---
+
+## 🚀 Instrucciones de Instalación y Uso
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/RodrigoJatib/PROG-III-CRUD-TP3.git
+cd PROG-III-CRUD-TP3
