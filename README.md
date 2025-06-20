@@ -1,6 +1,6 @@
 # PROG-III-CRUD-T
 
-# Polirubro Nevada - Sistema de Gestión de Ventas para Sodería
+# Tienda de Ropa - Sistema de Gestión de Ventas para Tienda de Ropa
 
 ## 🧾 Objetivo del Proyecto
 
