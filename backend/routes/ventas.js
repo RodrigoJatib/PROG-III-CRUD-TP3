@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
   try {
     const [ventaResult] = await db.query(
       "INSERT INTO ventas (cliente_id, fecha, total) VALUES (?, ?, ?)",
-      [cliente_id, fecha, total]
+      [cliente_id || null, fecha, total]
     );
 
     const venta_id = ventaResult.insertId;
@@ -31,5 +31,16 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Error al registrar venta" });
   }
 });
+
+// GET /ventas - Listar todas las ventas
+router.get("/", async (req, res) => {
+  try {
+    const [ventas] = await db.query("SELECT * FROM ventas");
+    res.json(ventas);
+  } catch (err) {
+    res.status(500).json({ error: "Error al obtener ventas" });
+  }
+});
+
 
 module.exports = router;

@@ -12,6 +12,8 @@ export default function ProductosAdminPage() {
     precio: "",
     stock: "",
     descripcion: "",
+    talle: "",
+    categoria: "",
   });
 
   const handleChange = (e) => {
@@ -19,9 +21,9 @@ export default function ProductosAdminPage() {
   };
 
   const agregarProducto = async () => {
-    const { nombre, precio, stock, descripcion } = nuevoProducto;
-    if (!nombre || !precio || !stock) {
-      alert("Nombre, precio y stock son obligatorios.");
+    const { nombre, precio, stock, descripcion, talle, categoria } = nuevoProducto;
+    if (!nombre || !precio || !stock || !descripcion || !talle || !categoria) {
+      alert("Todos los campos para agregar Productos son obligatorios.");
       return;
     }
 
@@ -31,8 +33,10 @@ export default function ProductosAdminPage() {
         precio: parseFloat(precio),
         stock: parseInt(stock),
         descripcion,
+        talle,
+        categoria
       });
-      setNuevoProducto({ nombre: "", precio: "", stock: "", descripcion: "" });
+      setNuevoProducto({ nombre: "", precio: "", stock: "", descripcion: "", talle: "", categoria: "" });
       alert("Producto agregado exitosamente.");
       setReload(!reload); // Forzar recarga de productos
     } catch (error) {
@@ -61,14 +65,16 @@ export default function ProductosAdminPage() {
       nombre: producto.nombre,
       precio: producto.precio,
       stock: producto.stock,
-      descripcion: producto.descripcion || "",
+      descripcion: producto.descripcion,
+      talle: producto.talle,
+      categoria: categoria.talle || "",
     });
   };
 
   const guardarCambios = async () => {
-  const { nombre, precio, stock, descripcion } = nuevoProducto;
-  if (!nombre || !precio || !stock) {
-    alert("Nombre, precio y stock son obligatorios.");
+  const { nombre, precio, stock, descripcion, talle, categoria } = nuevoProducto;
+  if (!nombre || !precio || !stock || !descripcion || !talle || !categoria) {
+    alert("Los campos son obligatorios.");
     return;
   }
 
@@ -78,11 +84,13 @@ export default function ProductosAdminPage() {
       precio: parseFloat(precio),
       stock: parseInt(stock),
       descripcion,
+      talle,
+      categoria
     });
 
     alert("Producto actualizado correctamente.");
     setProductoEditando(null);
-    setNuevoProducto({ nombre: "", precio: "", stock: "", descripcion: "" });
+    setNuevoProducto({ nombre: "", precio: "", stock: "", descripcion: "", talle: "", categoria: "" });
     setReload(!reload); // 🔁 Recargar productos para ver el cambio reflejado
   } catch (error) {
     alert("Error al actualizar producto. Revisa la consola.");
@@ -128,7 +136,55 @@ export default function ProductosAdminPage() {
               onChange={handleChange}
             />
           </div>
-          <div className="col-md-12 mt-3">
+          
+          <div className="col-md-4">
+          <select
+                className="form-select mb-2"
+                onChange={(e) => setFiltros({ ...filtros, talle: e.target.value })}
+              >
+                <option value="">Filtrar por talle</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="único">Único</option>
+              </select>
+          </div>
+          {/* <div className="col-md-4">
+            <input
+              type="text"
+              name="talle"
+              className="form-control"
+              placeholder="Talle"
+              value={nuevoProducto.talle}
+              onChange={handleChange}
+            />
+          </div> */}
+
+          <div className="col-md-4">
+              <select
+                className="form-select mb-2"
+                onChange={(e) => setFiltros({ ...filtros, categoria: e.target.value })}
+              >
+                <option value="">Filtrar por categoría</option>
+                <option value="ropa-arriba">Partes de Arriba</option>
+                <option value="ropa-abajo">Partes de Abajo</option>
+                <option value="vestidos y monos">Vestidos y Monos</option>
+              </select>
+            </div>
+          {/* <div className="col-md-4">
+            <input
+              type="text"
+              name="categoria"
+              className="form-control"
+              placeholder="Categoría"
+              value={nuevoProducto.categoria}
+              onChange={handleChange}
+            />
+          </div> */}
+
+
+          <div className="col-md-4">
             <input
               type="text"
               name="descripcion"

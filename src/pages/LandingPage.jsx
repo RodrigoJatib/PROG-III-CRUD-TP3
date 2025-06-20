@@ -25,7 +25,7 @@ export default function LandingPage() {
             <i className="bi bi-person-circle me-2"></i> Ingresar
           </Link>
           <a
-            href="https://github.com/AnaSofi03/proyectoSoderia" // opcional
+            href="https://github.com/RodrigoJatib/PROG-III-CRUD-TP3.git" // opcional
             className="btn btn-outline-dark"
             target="_blank"
           >

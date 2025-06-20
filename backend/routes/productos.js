@@ -14,18 +14,18 @@ router.get("/", async (req, res) => {
 
 // Agregar un nuevo producto
 router.post("/", async (req, res) => {
-  const { nombre, precio, stock, descripcion } = req.body;
+  const { nombre, precio, stock, descripcion, talle, categoria } = req.body;
 
   if (!nombre || !precio) {
-    return res.status(400).json({ error: "Nombre y precio son obligatorios" });
+    return res.status(400).json({ error: "Los campos son obligatorios" });
   }
 
   try {
     const [result] = await db.query(
-      "INSERT INTO productos (nombre, precio, stock, descripcion) VALUES (?, ?, ?, ?)",
-      [nombre, precio || "", stock || 0, descripcion || ""]
+      "INSERT INTO productos (nombre, precio, stock, descripcion, talle, categoria) VALUES (?, ?, ?, ?)",
+      [nombre, precio || "", stock || 0, descripcion || "", talle || categoria]
     );
-    res.status(201).json({ id: result.insertId, nombre, precio, stock, descripcion });
+    res.status(201).json({ id: result.insertId, nombre, precio, stock, descripcion, talle, categoria });
   } catch (err) {
     res.status(500).json({ error: "Error al agregar producto" });
   }
@@ -46,15 +46,15 @@ router.delete("/:id", async (req, res) => {
 // PUT /productos/:id → Actualizar producto
 router.put("/:id", (req, res) => {
   const id = req.params.id;
-  const { nombre, precio, stock, descripcion } = req.body;
+  const { nombre, precio, stock, descripcion, talle, categoria } = req.body;
 
   const sql = `
     UPDATE productos
-    SET nombre = ?, precio = ?, stock = ?, descripcion = ?
+    SET nombre = ?, precio = ?, stock = ?, descripcion = ?, talle = ?, categoria = ?
     WHERE id = ?
   `;
 
-  db.query(sql, [nombre, precio, stock, descripcion, id], (err, result) => {
+  db.query(sql, [nombre, precio, stock, descripcion, talle, categoria, id], (err, result) => {
     if (err) {
       console.error("Error al actualizar producto:", err);
       return res.status(500).json({ error: "Error al actualizar producto" });
