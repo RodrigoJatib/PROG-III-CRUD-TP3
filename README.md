@@ -4,12 +4,11 @@
 
 ## 🧾 Objetivo del Proyecto
 
-Desarrollar una SPA (Single Page Application) que simule un sistema de gestión de ventas para una sodería, permitiendo a los usuarios:
+Desarrollar una SPA (Single Page Application) que simule un sistema de gestión de ventas para una tienda de ropa, permitiendo a los vendedores:
 
-- Visualizar y administrar productos, stock, clientes y ventas.
-- Acceder al sistema según el tipo de usuario (Cliente o Empleado/Admin).
+- Visualizar y administrar productos, stock y ventas en una aplicación sencilla e intuitiva.
 - Navegar fácilmente por la plataforma con una experiencia moderna, rápida y responsiva.
-- Simular un entorno real de ventas, con funcionalidades como carrito de compras, historial de pedidos y sistema de autenticación.
+- Simular un entorno real de ventas, con funcionalidades como historial de pedidos y sistema de autenticación.
 
 ---
 
@@ -18,17 +17,10 @@ Desarrollar una SPA (Single Page Application) que simule un sistema de gestión 
 - **Frontend**: React + Vite
 - **Routing**: React Router DOM
 - **Gestión de estado global**: Zustand
-- **API fake**: JSON Server
 - **Estilos**: Bootstrap 5 + CSS custom
 - **Lógica reutilizable**: Hooks personalizados (Custom Hooks)
 - **Herramientas adicionales**: Icons (Bootstrap Icons / FontAwesome), responsive design
 
 ---
 
-## 🚀 Instrucciones de Instalación y Uso
 
-### 1. Clonar el repositorio
-
-```bash
-git clone https://github.com/RodrigoJatib/PROG-III-CRUD-TP3.git
-cd PROG-III-CRUD-TP3
