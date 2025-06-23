@@ -4,17 +4,30 @@ import axios from "axios";
 const API_URL = "http://localhost:3001";
 
 // 🔹 GET - Hook personalizado
-export function useFetch(endpoint, deps) {
+export function useFetch(endpoint) {
   const [data, setData] = useState([]);
+  const [reloadTrigger, setReloadTrigger] = useState(0);
+
+  const reload = () => setReloadTrigger((prev) => prev + 1);
 
   useEffect(() => {
     axios
       .get(`${API_URL}/${endpoint}`)
       .then((res) => setData(res.data))
       .catch((err) => console.error("Error al obtener datos:", err));
-  }, [endpoint, deps]);
+  }, [endpoint, reloadTrigger]);
 
-  return data;
+  return [data, reload];
+}
+// 🔹 GET genérico - útil para consultas con query params
+export async function fetchData(endpoint) {
+  try {
+    const res = await axios.get(`${API_URL}/${endpoint}`);
+    return res.data;
+  } catch (error) {
+    console.error("Error en fetchData:", error.response?.data || error.message);
+    throw error;
+  }
 }
 
 // 🔹 POST - Crear nuevo recurso
@@ -52,7 +65,3 @@ export async function deleteData(endpoint, id) {
 
 
 
-// This code defines a custom React hook `useFetch` that fetches data from a specified endpoint using Axios.
-// It also includes functions for posting, updating, and deleting data from the server.
-// The `useFetch` hook initializes state for the data and uses the `useEffect` hook to fetch data from the server when the component mounts or when the endpoint changes.
-// The `BASE_URL` is set to "http://localhost:3000", which is the base URL for the API.

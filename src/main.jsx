@@ -4,10 +4,10 @@ import ReactDOM from 'react-dom/client';
 import AppRoutes from './router/routes.jsx';
 import { StrictMode } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import './index.css';
+import '../src/styles/App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "./styles/custom.css"; 
+import "../src/styles/custom.css"; 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>

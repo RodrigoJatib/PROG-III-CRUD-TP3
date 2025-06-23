@@ -54,5 +54,3 @@ export default useStore;
 
 
 
-// This code defines a Zustand store for managing user authentication state in a React application.
-// It includes methods for setting the user and logging out.

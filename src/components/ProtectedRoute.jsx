@@ -13,7 +13,7 @@ export default function ProtectedRoute({ children, role }) {
     return () => clearTimeout(timeout);
   }, []);
 
-  if (checking) return null; // o <div>Cargando...</div> si querés
+  if (checking) return null;
 
   if (!user) {
     console.log("No hay usuario → redirigiendo al login");
@@ -30,5 +30,4 @@ export default function ProtectedRoute({ children, role }) {
 
 
 
-// This component is a protected route that checks if the user is logged in and has the correct role.
-// If the user is not logged in, it redirects to the login page.
+

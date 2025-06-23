@@ -11,7 +11,3 @@ export default function ProductCard({ producto}) {
         </div>
     );
 }
-// This code defines a ProductCard component that displays a product's name and price in a card format.
-// It takes a `producto` prop, which is expected to be an object with `nombre` and `precio` properties.
-// The component uses Bootstrap classes for styling, including a card layout with a title and text.
-// The card is styled with a width of 18rem and has a margin of 2 units on all sides.
